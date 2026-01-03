@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { SEOConfig } from "./types";
 import { generateMetaTags } from "./metaTagsGenerator";
-import { fetchAltrozSeoConfig } from "./api";
+import { fetchAltrozSEOConfig } from "./api";
 
 /**
  * React component that renders Altroz SEO meta tags
@@ -20,7 +20,7 @@ export function AltrozSEO({
   useEffect(() => {
     if (apiKey) {
       setLoading(true);
-      fetchAltrozSeoConfig(apiKey, apiUrl)
+      fetchAltrozSEOConfig(apiKey, apiUrl)
         .then((fetchedConfig) => {
           setSeoConfig(fetchedConfig);
           setLoading(false);
@@ -67,14 +67,14 @@ export function AltrozSEO({
  * React hook that returns Altroz SEO meta tags as JSX elements
  * Accepts API key to fetch config from API (uses PROD URL by default)
  */
-export function useAltrozSeo(apiKey: string, apiUrl?: string) {
+export function useAltrozSEO(apiKey: string, apiUrl?: string) {
   const [seoConfig, setSeoConfig] = useState<SEOConfig | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (apiKey) {
       setLoading(true);
-      fetchAltrozSeoConfig(apiKey, apiUrl)
+      fetchAltrozSEOConfig(apiKey, apiUrl)
         .then((fetchedConfig) => {
           setSeoConfig(fetchedConfig);
           setLoading(false);

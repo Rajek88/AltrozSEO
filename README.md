@@ -44,14 +44,14 @@ function MyPage() {
 }
 ```
 
-#### Using the useAltrozSeo Hook
+#### Using the useAltrozSEO Hook
 
 ```tsx
-import { useAltrozSeo } from "altroz-seo";
+import { useAltrozSEO } from "altroz-seo";
 import { Helmet } from "react-helmet-async";
 
 function MyPage() {
-  const { title, allElements, loading } = useAltrozSeo("your-api-key-here");
+  const { title, allElements, loading } = useAltrozSEO("your-api-key-here");
 
   if (loading) {
     return <div>Loading SEO tags...</div>;
@@ -69,11 +69,11 @@ function MyPage() {
 #### Using Next.js
 
 ```tsx
-import { useAltrozSeo } from "altroz-seo";
+import { useAltrozSEO } from "altroz-seo";
 import Head from "next/head";
 
 function MyPage() {
-  const { allElements, loading } = useAltrozSeo("your-api-key-here");
+  const { allElements, loading } = useAltrozSEO("your-api-key-here");
 
   if (loading) {
     return <div>Loading...</div>;
@@ -109,7 +109,7 @@ export class MyPageComponent implements OnInit {
   }
 
   async ngOnInit() {
-    await this.seoHelper.applyAltrozSeo("your-api-key-here");
+    await this.seoHelper.applyAltrozSEO("your-api-key-here");
   }
 }
 ```
@@ -119,7 +119,7 @@ export class MyPageComponent implements OnInit {
 ```typescript
 import { Component, OnInit } from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
-import { getAltrozSeoMetaTags } from "altroz-seo";
+import { getAltrozSEOMetaTags } from "altroz-seo";
 
 @Component({
   selector: "app-my-page",
@@ -129,7 +129,7 @@ export class MyPageComponent implements OnInit {
   constructor(private meta: Meta, private title: Title) {}
 
   async ngOnInit() {
-    const tags = await getAltrozSeoMetaTags("your-api-key-here");
+    const tags = await getAltrozSEOMetaTags("your-api-key-here");
 
     if (tags.title) {
       this.title.setTitle(tags.title);
@@ -151,18 +151,18 @@ export class MyPageComponent implements OnInit {
 For server-side rendering or static site generation:
 
 ```typescript
-import { generateAltrozSeoHTML } from "altroz-seo";
+import { generateAltrozSEOHTML } from "altroz-seo";
 
-const html = await generateAltrozSeoHTML("your-api-key-here");
+const html = await generateAltrozSEOHTML("your-api-key-here");
 // Returns HTML string ready to inject into <head>
 ```
 
 ### Programmatic Use
 
 ```typescript
-import { fetchAltrozSeoConfig, generateMetaTags } from "altroz-seo";
+import { fetchAltrozSEOConfig, generateMetaTags } from "altroz-seo";
 
-const config = await fetchAltrozSeoConfig("your-api-key-here");
+const config = await fetchAltrozSEOConfig("your-api-key-here");
 
 if (config) {
   const output = generateMetaTags(config);
@@ -220,9 +220,14 @@ Supported structured data types:
 Full TypeScript support with exported types:
 
 ```typescript
-import { SEOConfig, MetaTagsOutput } from "altroz-seo";
+import {
+  SEOConfig,
+  MetaTagsOutput,
+  fetchAltrozSEOConfig,
+  generateMetaTags,
+} from "altroz-seo";
 
-const config: SEOConfig = await fetchAltrozSeoConfig("api-key");
+const config: SEOConfig = await fetchAltrozSEOConfig("api-key");
 const output: MetaTagsOutput = generateMetaTags(config);
 ```
 

@@ -10,7 +10,7 @@ export interface APIResponse {
  * Fetch Altroz SEO config from API
  * Returns the first config from the API response (API should handle which config to return)
  */
-export async function fetchAltrozSeoConfig(
+export async function fetchAltrozSEOConfig(
   apiKey: string,
   apiUrl: string = DEFAULT_API_URL
 ): Promise<SEOConfig | null> {

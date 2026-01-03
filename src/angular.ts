@@ -1,6 +1,6 @@
 import { SEOConfig } from "./types";
 import { generateMetaTags } from "./metaTagsGenerator";
-import { fetchAltrozSeoConfig } from "./api";
+import { fetchAltrozSEOConfig } from "./api";
 
 /**
  * Angular Meta and Title types (to avoid requiring @angular/platform-browser as dependency)
@@ -23,7 +23,7 @@ export interface AngularTitle {
 
 /**
  * Angular service helper to apply Altroz SEO meta tags
- * Usage: Inject Meta and Title services, then call applyAltrozSeo()
+ * Usage: Inject Meta and Title services, then call applyAltrozSEO()
  */
 export class AltrozSEOAngularHelper {
   constructor(private meta: AngularMeta, private title: AngularTitle) {}
@@ -32,8 +32,8 @@ export class AltrozSEOAngularHelper {
    * Apply Altroz SEO meta tags to Angular Meta service
    * Accepts API key to fetch config from API (uses PROD URL by default)
    */
-  async applyAltrozSeo(apiKey: string, apiUrl?: string): Promise<void> {
-    const config = await fetchAltrozSeoConfig(apiKey, apiUrl);
+  async applyAltrozSEO(apiKey: string, apiUrl?: string): Promise<void> {
+    const config = await fetchAltrozSEOConfig(apiKey, apiUrl);
 
     if (!config) {
       return;
@@ -84,7 +84,7 @@ export class AltrozSEOAngularHelper {
   /**
    * Get meta tags as objects (for programmatic use)
    */
-  getAltrozSeoTags(config: SEOConfig) {
+  getAltrozSEOTags(config: SEOConfig) {
     return generateMetaTags(config);
   }
 }
@@ -93,8 +93,8 @@ export class AltrozSEOAngularHelper {
  * Standalone function to get Altroz SEO meta tags for Angular (without service injection)
  * Accepts API key to fetch config from API (uses PROD URL by default)
  */
-export async function getAltrozSeoMetaTags(apiKey: string, apiUrl?: string) {
-  const config = await fetchAltrozSeoConfig(apiKey, apiUrl);
+export async function getAltrozSEOMetaTags(apiKey: string, apiUrl?: string) {
+  const config = await fetchAltrozSEOConfig(apiKey, apiUrl);
 
   if (!config) {
     return {

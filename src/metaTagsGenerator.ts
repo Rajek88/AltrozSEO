@@ -7,7 +7,7 @@ import {
 } from "./types";
 import { escapeHtml } from "./utils";
 import { generateJSONLD } from "./jsonLdGenerator";
-import { fetchAltrozSeoConfig } from "./api";
+import { fetchAltrozSEOConfig } from "./api";
 import { DEFAULT_API_URL } from "./urlEnums";
 
 /**
@@ -361,11 +361,11 @@ export function generateMetaTagsHTML(config: SEOConfig): string {
  * Generate Altroz SEO meta tags as HTML string from API
  * Fetches config from API using API key and generates HTML
  */
-export async function generateAltrozSeoHTML(
+export async function generateAltrozSEOHTML(
   apiKey: string,
   apiUrl: string = DEFAULT_API_URL
 ): Promise<string> {
-  const config = await fetchAltrozSeoConfig(apiKey, apiUrl);
+  const config = await fetchAltrozSEOConfig(apiKey, apiUrl);
   if (!config) {
     return "";
   }
