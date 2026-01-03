@@ -1,0 +1,35 @@
+{
+  "name": "altroz-seo",
+  "version": "1.0.0",
+  "description": "Generate SEO meta tags, Open Graph tags, Twitter Cards, and JSON-LD structured data for React and Angular applications",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc && tsc --module es2015 --outDir dist/esm",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "seo",
+    "meta-tags",
+    "open-graph",
+    "twitter-cards",
+    "json-ld",
+    "structured-data",
+    "react",
+    "angular"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "typescript": "^5.5.3"
+  }
+}
